@@ -13,7 +13,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
@@ -41,7 +40,6 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -51,9 +49,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_XXXXXXXXXXXX }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_XXXXXXXXXXXX }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_XXXXXXXXXXXX }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_106ADAA815B34CD88598EB7A3B7B0F41 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0D23B0A935D74D5F8B37EEDCBFB699CC }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1E2677A5C55744638D115359E480C63E }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
